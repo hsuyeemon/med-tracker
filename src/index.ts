@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import http from 'http';
 import mongoose from 'mongoose';
-import { createMed } from './controllers/medication';
+import { createMed, getMed } from './controllers/medication';
 
 const app = express();
 app.use(bodyParser.json());
@@ -11,6 +11,7 @@ app.use(express.static('./public'))
 //const server = http.createServer(app);
 
 app.post('/create-med' , createMed)
+app.get('/get-med', getMed)
 
 app.listen(5000, ()=> {
     console.log("Server listening on port 5000")
